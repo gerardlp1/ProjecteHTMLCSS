@@ -86,7 +86,7 @@ header nav a:hover {
 }
 
 main {
-  padding-top: 70px;
+  padding-top: 3px;
   flex-grow: 1;
   box-sizing: border-box;
   width: 100%;
