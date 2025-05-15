@@ -1,0 +1,148 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #333;
+  color: #eee;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  font-size: 2.5rem;
+  flex-grow: 1;
+}
+
+header nav {
+  flex-shrink: 0;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header nav li {
+  margin-left: 1rem;
+}
+
+header nav a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+header nav a:hover {
+    color: #841dcd;
+}
+
+main {
+  padding: 2rem;
+  padding-top: 80px; /* Ajuste para el header fijo */
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+section.accessories { /* Mantenemos la clase "consoles" ya que así está en el HTML */
+  margin-bottom: 3rem;
+}
+
+section.accessories h1 { /* Estilo para el título de la consola */
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem; /* Aumentamos el tamaño del título principal */
+  text-align: center;
+}
+
+.accessories .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Ajuste para un solo elemento */
+  gap: 2rem;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.accessories .card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.accessories .card img {
+  width: 100%;
+  max-height: 600px; /* Aumentamos la altura máxima a 600px (puedes ajustar este valor) */
+  display: block;
+  object-fit: contain; /* Mantenemos contain para ver la imagen completa */
+  margin-bottom: 1rem;
+}
+
+.accessories .card p.description {
+  color: #555;
+  font-size: 1rem; /* Aumentamos un poco el tamaño de la descripción */
+  line-height: 1.6;
+  padding: 1rem;
+  text-align: left;
+  margin-bottom: 1rem; /* Espacio entre la descripción y el botón */
+}
+
+.accessories .card button {
+  background-color: #841dcd;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0 0 8px 8px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  margin: 0 1rem 1rem 1rem; /* Añadimos margen alrededor del botón */
+}
+
+.accessories .card button:hover {
+  background-color: #58128b;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #333;
+  color: #eee;
+  text-align: center;
+  padding: 1rem 0;
+  z-index: 99;
+  box-sizing: border-box;
+}
