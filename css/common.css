@@ -12,7 +12,7 @@ body {
 header {
   background-color: #333;
   color: #eee;
-  padding: 1rem 2rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,24 +24,28 @@ header {
   z-index: 100;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+header .logo {
+  max-height: 55px;
+  margin-right: 1rem;
 }
 
 header h1 {
   font-family: 'Oswald', sans-serif;
   margin: 0;
-  font-size: 2.5rem;
-  flex-grow: 1;
-}
-
-header nav {
-  flex-shrink: 0;
+  font-size: 1.5rem;
+  text-align: left;
 }
 
 header nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 header nav li {
@@ -55,39 +59,50 @@ header nav a {
 }
 
 header nav a:hover {
-    color: #841dcd;
+  color: #841dcd;
 }
 
 main {
-  padding: 2rem;
-  padding-top: 80px; /* Ajuste para el header fijo */
+  padding-top: 90px;
   flex-grow: 1;
   box-sizing: border-box;
+  width: 100%;
 }
 
 section {
-  margin-bottom: 3rem;
+  padding-top: 5px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+section h2,
+section h3,
+.card h3 {
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+section h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 section h3 {
-  font-family: 'Oswald', sans-serif;
-  color: #333; /* Cambiado a un color más legible ya que no hay banner */
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-  text-align: center; /* Centrado para ambos HTML */
-  border-bottom: 1px solid #ccc; /* Añadido un separador visual */
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #eee;
   padding-bottom: 0.3rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para mejor visualización en ambos */
-  gap: 2rem; /* Espacio entre tarjetas */
-  max-width: 1000px; /* Ancho máximo para el grid */
-  margin: 20px auto; /* Centrado del grid */
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   box-sizing: border-box;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .card {
@@ -103,19 +118,14 @@ section h3 {
 
 .card img {
   width: 100%;
-  height: 250px; /* Altura fija para las imágenes */
-  display: block;
+  height: auto;
   object-fit: cover;
-  box-sizing: border-box;
+  display: block;
 }
 
 .card h3 {
-  font-family: 'Oswald', sans-serif;
-  color: #333;
   margin: 0.75rem;
-  font-size: 1.2rem;
-  text-align: center;
-  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 .card button {
@@ -123,37 +133,145 @@ section h3 {
   color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   border-radius: 0 0 8px 8px;
   transition: background-color 0.3s ease;
-  box-sizing: border-box;
 }
 
 .card button:hover {
   background-color: #58128b;
 }
 
+.consoles .grid > div:nth-child(3) {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+.consoles .grid > div:nth-child(3) .card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 footer {
-  bottom: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   background-color: #333;
   color: #eee;
   text-align: center;
   padding: 1rem 0;
-  z-index: 99;
   box-sizing: border-box;
 }
 
-/* Media query para pantallas pequeñas */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  margin: 0 0.5rem;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+#menu-icon {
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
 @media (max-width: 768px) {
-  .grid {
+  header {
+    flex-direction: row;
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+    align-items: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    width: 100%;
+  }
+
+  header nav.show-menu ul {
+    display: flex;
+  }
+
+  header nav li {
+    margin: 0.5rem 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    margin-right: auto;
+  }
+
+  main {
+    padding-top: 130px;
+  }
+
+  .grid,
+  .consoles .grid,
+  .accessories .grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section h3 {
+    font-size: 1.2rem;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+
+  header nav {
+    margin-top: 1rem;
+  }
+
+  header .logo {
+    margin-right: 1rem;
   }
 }
 
+@media (min-width: 769px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  header nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-right: auto;
+  }
+
+  header nav li {
+    margin-left: 1rem;
+  }
+
+  #menu-icon {
+    display: none;
+  }
+}
